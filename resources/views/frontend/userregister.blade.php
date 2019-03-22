@@ -81,28 +81,28 @@
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label>User Name</label>
-                                    <input class="form-control" type="name" name="name"placeholder="Enter your Full name">
+                                    <input class="form-control" type="name" value="{{old('name')}}" name="name"placeholder="Enter your Full name">
                                    <span style="color: red;">{{ $errors->first('name') }}</span>
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <label>Email</label>
-                                    <input class="form-control" type="email" name="email"placeholder="Enter Email">
+                                    <input class="form-control" type="email" value="{{old('email')}}"name="email"placeholder="Enter Email">
                                    <span style="color: red;">{{ $errors->first('email') }}</span>
                                 </div>
                                
                                 <div class="form-group col-lg-12">
                                     <label>Password</label>
-                                    <input type="password" name="password" class="form-control"placeholder="Enter Password">
+                                    <input type="password" name="password"  class="form-control"placeholder="Enter Password">
                                 <span style="color: red;">{{ $errors->first('password') }}</span>
                                 </div>
                                
 
                                 <div class="form-group col-lg-12">
                                     <label>Choose image</label>
-                                    <div class="form-group col-md-4">
+                                   
                                         <input type="file" name="filename" class="form-control">
-                                    </div>
+                                   
                                     <span style="color: red;">{{ $errors->first('filename') }}</span>
                                 
                                 </div>
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="text-center login-footer">
-                <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                
             </div>
         </div>   
     </div>

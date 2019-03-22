@@ -65,6 +65,9 @@
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
+@if(Session::has('msg'))
+    <div class="alert alert-success">{{Session::get('msg')}}</div>
+@endif
 <form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('postlogin' )}}">
              {{csrf_field()}}
               
@@ -100,14 +103,16 @@
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-success loginbtn">Login</button>
-                                <button class="btn btn-default">Create a new account</button>
+                                <button class="btn btn-default">Join us</button>
+                                
+                                    
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="text-center login-footer">
-                <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+               
             </div>
         </div>   
     </div>

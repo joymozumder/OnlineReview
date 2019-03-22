@@ -81,19 +81,19 @@
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label>Organization Name</label>
-                                    <input class="form-control" type="name" name="name"placeholder="Enter your Full name">
+                                    <input class="form-control" type="name"value="{{old('name')}}" name="name"placeholder="Enter your Full name">
                                    <span style="color: red;">{{ $errors->first('name') }}</span>
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <label>Email</label>
-                                    <input class="form-control" type="email" name="email"placeholder="Enter Email">
+                                    <input class="form-control" type="email" value="{{old('email')}}"name="email"placeholder="Enter Email">
                                    <span style="color: red;">{{ $errors->first('email') }}</span>
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <label>Address</label>
-                                    <input class="form-control" type="address" name="address"placeholder="Enter Address">
+                                    <input class="form-control" type="address"value="{{old('address')}}" name="address"placeholder="Enter Address">
                                    <span style="color: red;">{{ $errors->first('address') }}</span>
                                 </div>
 
@@ -104,7 +104,7 @@
                                         <div class="value">
                                             <div class="input-group">
                                                
-                                                 <textarea name="description" class="input--style-5" id="" cols="55" rows="5"></textarea>
+                                                 <textarea type="text" name="description" class="input--style-5" id="" cols="55" rows="5">{{old('description')}}</textarea>
                                             </div>
                                         </div>
                                         <span style="color: red;">{{ $errors->first('description') }}</span>
@@ -116,18 +116,33 @@
                                
                                 <div class="form-group col-lg-12">
                                     <label>Password</label>
-                                    <input type="password" name="password" class="form-control"placeholder="Enter Password">
+                                    <input type="password"  name="password" class="form-control"placeholder="Enter Password">
                                 <span style="color: red;">{{ $errors->first('password') }}</span>
                                 </div>
                                
 
-                               <div class="form-group col-lg-12">
+                    
+
+
+
+
+
+                                <div class="form-group col-lg-12">
+                                    <label>Choose image</label>
+                                    
+                                        <input type="file" name="filename" class="form-control">
+                                  
+                                    <span style="color: red;">{{ $errors->first('filename') }}</span>
+                                
+                                </div>
+
+                                <div class="form-group col-lg-12">
                                         <label>Category</label>
                                         <div class="value">
                                             <div class="input-group">
                                                 <div class="rs-select2 js-select-simple select--no-search">
                                                     <select name="category">
-                                                        <option disabled="disabled" selected="selected">Choose option</option>
+                                                        <option disabled="disabled" selected="selected">{{old('category')}}</option>
                                                         <option>ISP</option>
                                                         <option>Restaurant</option>
                                                         <option>Hospital</option>
@@ -138,19 +153,6 @@
                                         </div>
                                         <span style="color: red;">{{ $errors->first('category') }}</span>
                                     </div>
-
-
-
-
-
-                                <div class="form-group col-lg-12">
-                                    <label>Choose image</label>
-                                    <div class="form-group col-md-4">
-                                        <input type="file" name="filename" class="form-control">
-                                    </div>
-                                    <span style="color: red;">{{ $errors->first('filename') }}</span>
-                                
-                                </div>
 
                                
                                
@@ -167,7 +169,7 @@
                 </div>
             </div>
             <div class="text-center login-footer">
-                <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+               
             </div>
         </div>   
     </div>

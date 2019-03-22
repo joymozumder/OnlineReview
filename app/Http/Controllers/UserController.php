@@ -17,7 +17,7 @@ class UserController extends Controller
     public function UserStore(Request $req){
         $validatedData = $req->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
             
@@ -41,7 +41,9 @@ class UserController extends Controller
        
         if($obj->save())
         {
-            return view('login');
+            return redirect('login')->with('msg','Successfully registered');
+
+            
         }
     }
 }

@@ -17,7 +17,7 @@ class OrganizationController extends Controller
     public function OrganizationStore(Request $req){
     	$validatedData = $req->validate([
     		'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:organizations,email|unique:approvals,email',
             'address' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -45,7 +45,7 @@ class OrganizationController extends Controller
 	    $obj->filename=time().$originalImage->getClientOriginalName();
        
     	if($obj->save()){
-    		return view('login');
+    		return redirect('login')->with('msg','Successfully registered and please wait for admin Approval');
     	}
     }
 }
