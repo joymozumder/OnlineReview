@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('organizationregister','OrganizationController@OrganizationRegister');
+Route::post('organizationstore','OrganizationController@OrganizationStore');
+
+Route::get('userregister','UserController@UserRegister');
+Route::post('userstore','UserController@UserStore');
+
+Route::get('login','HomeController@login');
+Route::post('postlogin','HomeController@postlogin');
+

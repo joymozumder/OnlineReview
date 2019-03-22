@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
+    <title>User Registration</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -65,7 +65,7 @@
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userdatastore' )}}">
+<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userstore' )}}">
              {{csrf_field()}}
               
         <div class="error-pagewrap">
@@ -81,29 +81,29 @@
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label>User Name</label>
-                                    <input class="form-control" type="name" name="name"placeholder="Enter your Full name">
+                                    <input class="form-control" type="name" value="{{old('name')}}" name="name"placeholder="Enter your Full name">
                                    <span style="color: red;">{{ $errors->first('name') }}</span>
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <label>Email</label>
-                                    <input class="form-control" type="email" name="email"placeholder="Enter Email">
+                                    <input class="form-control" type="email" value="{{old('email')}}"name="email"placeholder="Enter Email">
                                    <span style="color: red;">{{ $errors->first('email') }}</span>
                                 </div>
                                
                                 <div class="form-group col-lg-12">
                                     <label>Password</label>
-                                    <input type="password" name="password" class="form-control"placeholder="Enter Password">
+                                    <input type="password" name="password"  class="form-control"placeholder="Enter Password">
                                 <span style="color: red;">{{ $errors->first('password') }}</span>
                                 </div>
                                
 
                                 <div class="form-group col-lg-12">
                                     <label>Choose image</label>
-                                    <div class="form-group col-md-4">
+                                   
                                         <input type="file" name="filename" class="form-control">
-                                    </div>
-                                    <span style="color: red;">{{ $errors->first('image') }}</span>
+                                   
+                                    <span style="color: red;">{{ $errors->first('filename') }}</span>
                                 
                                 </div>
 
@@ -114,15 +114,15 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-success loginbtn">Login</button>
-                                <button class="btn btn-default">Create a new account</button>
+                                <button class="btn btn-success loginbtn">Register</button>
+                                
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="text-center login-footer">
-                <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                
             </div>
         </div>   
     </div>
