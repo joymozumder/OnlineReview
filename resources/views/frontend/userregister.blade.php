@@ -65,7 +65,7 @@
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userdatastore' )}}">
+<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userstore' )}}">
              {{csrf_field()}}
               
         <div class="error-pagewrap">
@@ -103,7 +103,7 @@
                                     <div class="form-group col-md-4">
                                         <input type="file" name="filename" class="form-control">
                                     </div>
-                                    <span style="color: red;">{{ $errors->first('image') }}</span>
+                                    <span style="color: red;">{{ $errors->first('filename') }}</span>
                                 
                                 </div>
 
@@ -114,8 +114,8 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-success loginbtn">Login</button>
-                                <button class="btn btn-default">Create a new account</button>
+                                <button class="btn btn-success loginbtn">Register</button>
+                                
                             </div>
                         </form>
                     </div>

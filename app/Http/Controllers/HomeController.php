@@ -13,7 +13,9 @@ use App\User;
 
 class HomeController extends Controller
 {
-    //
+    public function testingroute(){
+        return view('welcome');
+    }
     public function login(){
     	return view('login');
     }

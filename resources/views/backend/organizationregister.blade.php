@@ -65,13 +65,13 @@
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userdatastore' )}}">
+<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('organizationstore' )}}">
              {{csrf_field()}}
               
         <div class="error-pagewrap">
         <div class="error-page-int">
             <div class="text-center custom-login">
-                <h3>User Registration</h3>
+                <h3>Organization Registration</h3>
                 <p>Welcome to Review System</p>
             </div>
             <div class="content-error">
@@ -80,7 +80,7 @@
                         <form action="#" id="loginForm">
                             <div class="row">
                                 <div class="form-group col-lg-12">
-                                    <label>User Name</label>
+                                    <label>Organization Name</label>
                                     <input class="form-control" type="name" name="name"placeholder="Enter your Full name">
                                    <span style="color: red;">{{ $errors->first('name') }}</span>
                                 </div>
@@ -90,6 +90,29 @@
                                     <input class="form-control" type="email" name="email"placeholder="Enter Email">
                                    <span style="color: red;">{{ $errors->first('email') }}</span>
                                 </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label>Address</label>
+                                    <input class="form-control" type="address" name="address"placeholder="Enter Address">
+                                   <span style="color: red;">{{ $errors->first('address') }}</span>
+                                </div>
+
+
+
+                                 <div class="form-group col-lg-12">
+                                        <label>Description</label>
+                                        <div class="value">
+                                            <div class="input-group">
+                                               
+                                                 <textarea name="description" class="input--style-5" id="" cols="55" rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                        <span style="color: red;">{{ $errors->first('description') }}</span>
+                                 </div>
+
+
+
+                                
                                
                                 <div class="form-group col-lg-12">
                                     <label>Password</label>
@@ -98,12 +121,34 @@
                                 </div>
                                
 
+                               <div class="form-group col-lg-12">
+                                        <label>Category</label>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <div class="rs-select2 js-select-simple select--no-search">
+                                                    <select name="category">
+                                                        <option disabled="disabled" selected="selected">Choose option</option>
+                                                        <option>ISP</option>
+                                                        <option>Restaurant</option>
+                                                        <option>Hospital</option>
+                                                    </select>
+                                                    <div class="select-dropdown"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span style="color: red;">{{ $errors->first('category') }}</span>
+                                    </div>
+
+
+
+
+
                                 <div class="form-group col-lg-12">
                                     <label>Choose image</label>
                                     <div class="form-group col-md-4">
                                         <input type="file" name="filename" class="form-control">
                                     </div>
-                                    <span style="color: red;">{{ $errors->first('image') }}</span>
+                                    <span style="color: red;">{{ $errors->first('filename') }}</span>
                                 
                                 </div>
 
@@ -114,8 +159,8 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-success loginbtn">Login</button>
-                                <button class="btn btn-default">Create a new account</button>
+                                <button class="btn btn-success loginbtn">Register</button>
+                                
                             </div>
                         </form>
                     </div>

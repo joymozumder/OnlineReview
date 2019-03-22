@@ -65,13 +65,13 @@
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userdatastore' )}}">
+<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('postlogin' )}}">
              {{csrf_field()}}
               
         <div class="error-pagewrap">
         <div class="error-page-int">
             <div class="text-center custom-login">
-                <h3>User Registration</h3>
+                <h3>Organization Registration</h3>
                 <p>Welcome to Review System</p>
             </div>
             <div class="content-error">
@@ -80,8 +80,8 @@
                         <form action="#" id="loginForm">
                             <div class="row">
                                 <div class="form-group col-lg-12">
-                                    <label>User Name</label>
-                                    <input class="form-control" type="name" name="name"placeholder="Enter your Full name">
+                                    <label>Name</label>
+                                    <input class="form-control" type="email" name="email"placeholder="Enter Email">
                                    <span style="color: red;">{{ $errors->first('name') }}</span>
                                 </div>
 
