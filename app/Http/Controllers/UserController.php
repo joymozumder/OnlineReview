@@ -19,6 +19,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
+            'password_confirmation' => 'required_with:password|same:password',
             'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
             
         ]);

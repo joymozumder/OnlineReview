@@ -93,15 +93,30 @@
                                
                                 <div class="form-group col-lg-12">
                                     <label>Password</label>
-                                    <input type="password" name="password"  class="form-control"placeholder="Enter Password">
+                                    <input type="password" name="password" value="{{old('password')}}" class="form-control"placeholder="Enter Password">
                                 <span style="color: red;">{{ $errors->first('password') }}</span>
                                 </div>
                                
 
+                                 <div class="form-group col-lg-12">
+                                    <label>Confirm Password</label>
+                                    <input type="password" value="{{old('email')}}" name="password_confirmation" class="form-control"placeholder="Enter Password">
+                                <span style="color: red;">{{ $errors->first('password_confirmation') }}</span>
+                                </div>
+
+
+
                                 <div class="form-group col-lg-12">
                                     <label>Choose image</label>
                                    
-                                        <input type="file" name="filename" class="form-control">
+                                        <input type="file" name="filename" class="form-control" onchange="loadFile(event)">
+                                         <img id="output" width="100px"/>
+                                         <script>
+                                          var loadFile = function(event) {
+                                            var output = document.getElementById('output');
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                          };
+                                        </script>
                                    
                                     <span style="color: red;">{{ $errors->first('filename') }}</span>
                                 

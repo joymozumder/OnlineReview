@@ -22,6 +22,7 @@ class OrganizationController extends Controller
             'description' => 'required',
             'category' => 'required',
             'password' => 'required',
+            'password_confirmation' => 'required_with:password|same:password',
             'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
             
         ]);
