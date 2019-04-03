@@ -85,7 +85,7 @@
                                 
                                 <div class="form-group col-lg-12">
                                     <label>Email</label>
-                                    <input class="form-control" type="email" name="email"placeholder="Enter Email">
+                                    <input class="form-control" value="{{ old('email') }}" type="email" name="email"placeholder="Enter Email">
                                    <span style="color: red;">{{ $errors->first('email') }}</span>
                                 </div>
                                
@@ -103,7 +103,7 @@
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-success loginbtn">Login</button>
-                                <button class="btn btn-default">Join us</button>
+                                <button href="{{URL::to('welcome')}}"class="btn btn-default">Join us</button>
                                 
                                     
                             </div>

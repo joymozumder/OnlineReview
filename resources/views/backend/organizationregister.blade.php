@@ -131,7 +131,29 @@
 
 
 
+                            
+
                                 <div class="form-group col-lg-12">
+                                        <label>Category</label>
+                                        <div class="value">
+                                            <div class="form-group">
+                                                <select name="category"class="form-control">
+                                                    
+    <option selected="selected">{{old('category')}}</option>
+                                                        <option>ISP</option>
+                                                        <option>Restaurant</option>
+                                                        <option>Hospital</option>
+                                                    </select>
+                                                    <div class="select-dropdown"></div>
+                                               
+                                            </div>
+                                        </div>
+                                        <span style="color: red;">{{ $errors->first('category') }}</span>
+                                    </div>
+
+                               
+                               
+                            <div class="form-group col-lg-12">
                                     <label>Choose image</label>
                                    
                                         <input type="file" name="filename" class="form-control" onchange="loadFile(event)">
@@ -147,26 +169,14 @@
                                 
                                 </div>
 
-                                <div class="form-group col-lg-12">
-                                        <label>Category</label>
-                                        <div class="value">
-                                            <div class="input-group">
-                                                <div class="rs-select2 js-select-simple select--no-search">
-                                                    <select name="category">
-                                                        <option disabled="disabled" selected="selected">{{old('category')}}</option>
-                                                        <option>ISP</option>
-                                                        <option>Restaurant</option>
-                                                        <option>Hospital</option>
-                                                    </select>
-                                                    <div class="select-dropdown"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <span style="color: red;">{{ $errors->first('category') }}</span>
-                                    </div>
 
-                               
-                               
+
+
+
+
+
+
+
                                 <div class="checkbox col-lg-12">
                                     <input type="checkbox" class="i-checks" checked> accept all terms and Condition
                                 </div>

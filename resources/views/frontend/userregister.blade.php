@@ -93,14 +93,14 @@
                                
                                 <div class="form-group col-lg-12">
                                     <label>Password</label>
-                                    <input type="password" name="password" value="{{old('password')}}" class="form-control"placeholder="Enter Password">
+                                    <input type="password" name="password"  class="form-control"placeholder="Enter Password">
                                 <span style="color: red;">{{ $errors->first('password') }}</span>
                                 </div>
                                
 
                                  <div class="form-group col-lg-12">
                                     <label>Confirm Password</label>
-                                    <input type="password" value="{{old('email')}}" name="password_confirmation" class="form-control"placeholder="Enter Password">
+                                    <input type="password"  name="password_confirmation" class="form-control"placeholder="Enter Password">
                                 <span style="color: red;">{{ $errors->first('password_confirmation') }}</span>
                                 </div>
 
