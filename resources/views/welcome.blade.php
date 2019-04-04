@@ -1,181 +1,87 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-        ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/img/favicon.ico')}}">
-    <!-- Google Fonts
-        ============================================ -->
-    <link href="{{asset('frontend/https://fonts.googleapis.com/css?family=Play:400,700')}}" rel="stylesheet">
-    <!-- Bootstrap CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
-    <!-- Bootstrap CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">
-    <!-- owl.carousel CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/owl.theme.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/owl.transitions.css')}}">
-    <!-- animate CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
-    <!-- normalize CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/normalize.css')}}">
-    <!-- main CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}">
-    <!-- morrisjs CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/morrisjs/morris.css')}}">
-    <!-- mCustomScrollbar CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/scrollbar/jquery.mCustomScrollbar.min.css')}}">
-    <!-- metisMenu CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/metisMenu/metisMenu.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/metisMenu/metisMenu-vertical.css')}}">
-    <!-- calendar CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/calendar/fullcalendar.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/calendar/fullcalendar.print.min.css')}}">
-    <!-- forms CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/form/all-type-forms.css')}}">
-    <!-- style CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/style.css')}}">
-    <!-- responsive CSS
-        ============================================ -->
-    <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
-    <!-- modernizr JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/vendor/modernizr-2.8.3.min.js')}}"></script>
-</head>
-
-<body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-<form enctype="multipart/form-data" class="login100-form validate-form" method="post" action="{{ URL::to('userdatastore' )}}">
-             {{csrf_field()}}
-              
-        <div class="error-pagewrap">
-        <div class="error-page-int">
-            <div class="text-center custom-login">
-                <h3>User Registration</h3>
-                <p>Welcome to Review System</p>
-            </div>
-            <div class="content-error">
-                <div class="hpanel">
-                    <div class="panel-body">
-                        <form action="#" id="loginForm">
-                            <div class="row">
-                                <div class="form-group col-lg-12">
-                                    <label>User Name</label>
-                                    <input class="form-control" type="name" name="name"placeholder="Enter your Full name">
-                                   <span style="color: red;">{{ $errors->first('name') }}</span>
-                                </div>
-
-                                <div class="form-group col-lg-12">
-                                    <label>Email</label>
-                                    <input class="form-control" type="email" name="email"placeholder="Enter Email">
-                                   <span style="color: red;">{{ $errors->first('email') }}</span>
-                                </div>
-                               
-                                <div class="form-group col-lg-12">
-                                    <label>Password</label>
-                                    <input type="password" name="password" class="form-control"placeholder="Enter Password">
-                                <span style="color: red;">{{ $errors->first('password') }}</span>
-                                </div>
-                               
-
-                                <div class="form-group col-lg-12">
-                                    <label>Choose image</label>
-                                    <div class="form-group col-md-4">
-                                        <input type="file" name="filename" class="form-control">
-                                    </div>
-                                    <span style="color: red;">{{ $errors->first('image') }}</span>
-                                
-                                </div>
-
-                               
-                               
-                                <div class="checkbox col-lg-12">
-                                    <input type="checkbox" class="i-checks" checked> accept all terms and Condition
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-success loginbtn">Login</button>
-                                <button class="btn btn-default">Create a new account</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center login-footer">
-                <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
-            </div>
-        </div>   
-    </div>
-    </form>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
     
-    <!-- jquery
-        ============================================ -->
-    <script src="{{asset('frontend/js/vendor/jquery-1.12.4.min.js')}}"></script>
-    <!-- bootstrap JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
-    <!-- wow JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/wow.min.js')}}"></script>
-    <!-- price-slider JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/jquery-price-slider.js')}}"></script>
-    <!-- meanmenu JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/jquery.meanmenu.js')}}"></script>
-    <!-- owl.carousel JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
-    <!-- sticky JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/jquery.sticky.js')}}"></script>
-    <!-- scrollUp JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/jquery.scrollUp.min.js')}}"></script>
-    <!-- mCustomScrollbar JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/scrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
-    <script src="{{asset('frontend/js/scrollbar/mCustomScrollbar-active.js')}}"></script>
-    <!-- metisMenu JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/metisMenu/metisMenu.min.js')}}"></script>
-    <script src="{{asset('frontend/js/metisMenu/metisMenu-active.js')}}"></script>
-    <!-- tab JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/tab.js')}}"></script>
-    <!-- icheck JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/icheck/icheck.min.js')}}"></script>
-    <script src="{{asset('frontend/js/icheck/icheck-active.js')}}"></script>
-    <!-- plugins JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/plugins.js')}}"></script>
-    <!-- main JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/main.js')}}"></script>
-    <!-- tawk chat JS
-        ============================================ -->
-    <script src="{{asset('frontend/js/tawk-chat.js')}}"></script>
-</body>
+<div class="container">
 
+  <a href="#"><button class="btn btn3">Login</button></a>
+  <a href='#'><button class="btn btn2">User Registration</button></a>
+  <a href='#'><button class="btn btn3">Add Organization</button></a>
+</div>
+<style type="text/css">
+  .body{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  text-align: center;
+  margin-top: 360px;
+}
+.header
+{
+   background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(giphy.gif);
+   height:100vh;
+   background-size: cover;
+   background-position: center; 
+}
+
+.btn{
+  border: 1px solid #3498db;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "montserrat";
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+.btn1,.btn2{
+  color: #3498db;
+}
+.btn3,.btn4{
+  color: #fff;
+}
+.btn1:hover,.btn2:hover{
+  color: #fff;
+}
+.btn3:hover,.btn4:hover{
+  color: #3498db;
+}
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #3498db;
+  z-index: -1;
+  transition: 0.8s;
+}
+.btn1::before,.btn3::before{
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+.btn2::before,.btn4::before{
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+.btn3::before,.btn4::before{
+  height: 180%;
+}
+.btn1:hover::before,.btn2:hover::before{
+  height: 180%;
+}
+.btn3:hover::before,.btn4:hover::before{
+  height: 0%;
+}
+
+</style>
+  </body>
 </html>

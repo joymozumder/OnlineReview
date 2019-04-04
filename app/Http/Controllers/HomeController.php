@@ -13,7 +13,11 @@ use App\User;
 
 class HomeController extends Controller
 {
-    public function testingroute(){
+
+    public function test(){
+        return view('frontend.userprofile');
+    }
+    public function welcome(){
         return view('welcome');
     }
     public function login(){
@@ -26,7 +30,8 @@ class HomeController extends Controller
             'password' => 'required',
         ]);
         $email=$req->email;
-        $password=md5($req->password);
+        $password=($req->password);
+        
         $obj=Organization::where('email','=',$email)
                  ->where('password','=',$password)
                  ->first();
@@ -36,24 +41,24 @@ class HomeController extends Controller
                           
         if($obj)
         {
-        	return "Organization";
-            //Session::put('userid',$obj->id);
+        	//return "Organization";
+            Session::put('userid',$obj->id);
             //Session::put('userrole',$obj->role);
             //Session::put('uname',$obj->name);
             //return redirect()->to('/dashboard');
             //this pass the variable
-            //$sample = Organization::find($obj->id);       
-            //return view('frontend.OrganizationProfile',['data'=>$sample]);
+            $sample = Organization::find($obj->id);       
+            return view('frontend.organizationprofile',['data'=>$sample]);
         }
         else if($obj_2){
-        	return "User";
-            //Session::put('userid',$obj_2->id);
+        	//return "User";
+            Session::put('userid',$obj_2->id);
             //Session::put('userrole',$obj_2->role);
             //Session::put('uname',$obj_2->name);
             //return redirect()->to('/dashboard');
             //this pass the variable
-            //$sample = UserData::find($obj_2->id);       
-            //return view('frontend.profile',['data'=>$sample]);
+            $sample = User::find($obj_2->id);       
+            return view('frontend.userprofile',['data'=>$sample]);
         		
         }
         else if($req->email=="admin@gmail.com" and $req->password="123"){

@@ -22,6 +22,7 @@ class OrganizationController extends Controller
             'description' => 'required',
             'category' => 'required',
             'password' => 'required',
+            'password_confirmation' => 'required_with:password|same:password',
             'filename' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
             
         ]);
@@ -47,5 +48,32 @@ class OrganizationController extends Controller
     	if($obj->save()){
     		return redirect('login')->with('msg','Successfully registered and please wait for admin Approval');
     	}
+    }
+
+
+    public function organizationupdate(Request $req,$id){
+        $obj = Organization::find($id);       
+        $obj->name=$req->name;
+        $obj->email=$req->email;
+        $obj->address=$req->address;
+        $obj->description=$req->description;
+
+        //_____________________
+        if($req->filename!="")
+        {
+            $originalImage= $req->file('filename');
+            $thumbnailImage = Image::make($originalImage);
+            $thumbnailPath = public_path().'/thumbnail/';
+            $originalPath = public_path().'/images/';
+            $thumbnailImage->save($originalPath.time().$originalImage->getClientOriginalName());
+            $thumbnailImage->resize(277,187);
+            $thumbnailImage->save($thumbnailPath.time().$originalImage->getClientOriginalName()); 
+            $obj->filename=time().$originalImage->getClientOriginalName();
+       
+        }
+        if($obj->save()){
+            $sample = Organization::find($obj->id);       
+            return view('frontend.organizationprofile',['data'=>$sample]);
+        }
     }
 }
