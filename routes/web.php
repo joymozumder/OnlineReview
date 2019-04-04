@@ -10,7 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test','HomeController@test');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+
+
+
+Route::post('userupdate/{id}','UserController@userupdate');
+
+Route::post('organizationupdate/{id}','OrganizationController@organizationupdate');
+
+
+
+
+
+
+
+Route::get('welcome','HomeController@welcome');
+
+Route::get('organizationregister','OrganizationController@OrganizationRegister');
+Route::post('organizationstore','OrganizationController@OrganizationStore');
+
+Route::get('userregister','UserController@UserRegister');
+Route::post('userstore','UserController@UserStore');
+
+Route::get('login','HomeController@login');
+Route::post('postlogin','HomeController@postlogin');
+
