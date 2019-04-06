@@ -12,7 +12,7 @@ use App\Approval;
 class OrganizationController extends Controller
 {
     public function OrganizationRegister(){
-    	return view('backend.organizationregister');
+    	return view('frontend.organizationregister');
     }
     public function OrganizationStore(Request $req){
     	$validatedData = $req->validate([
@@ -76,4 +76,12 @@ class OrganizationController extends Controller
             return view('frontend.organizationprofile',['data'=>$sample]);
         }
     }
+
+    public function organizationprofile($id)
+    {
+
+        $obj = Organization::find($id);
+        return view('frontend.pages.organizationprofile',['data'=>$obj]);
+    }
+
 }
