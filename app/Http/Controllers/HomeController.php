@@ -25,12 +25,13 @@ class HomeController extends Controller
     }
     
     public function postlogin(Request $req){
+        //'required|exists:users,email|min:6'
         $validatedData = $req->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
         $email=$req->email;
-        $password=($req->password);
+        $password=md5($req->password);
         
         $obj=Organization::where('email','=',$email)
                  ->where('password','=',$password)
@@ -69,7 +70,8 @@ class HomeController extends Controller
         }
         
         else {
-        	return redirect()->to('login');
+        	return redirect('login')->with('msg','Invalid Email or Password');
+
         }
     }
     
