@@ -20,7 +20,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('address');
             $table->string('description');
             $table->string('category');
-            $table->integer('rating');
+            $table->float('rating');
             $table->string('password');
             $table->string('filename');
             $table->integer('role')->comment('2=>Organization');

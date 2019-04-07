@@ -14,6 +14,14 @@ class UserController extends Controller
     public function UserRegister(){
     	return view('frontend.userregister');
     }
+
+
+
+
+
+
+
+
     public function UserStore(Request $req){
         $validatedData = $req->validate([
             'name' => 'required',
@@ -51,10 +59,20 @@ class UserController extends Controller
 
 
 
+    public function userprofile($id)
+    {
+
+        $obj = User::find($id);
+        return view('frontend.pages.userprofile',['data'=>$obj]);
+    }
+
+
+
+
+
     public function userupdate(Request $req,$id){
           $obj = User::find($id);       
-        $obj->name=$req->name;
-        $obj->email=$req->email;
+            $obj->name=$req->name;
 
         //_____________________
         if($req->filename!="")
@@ -70,8 +88,9 @@ class UserController extends Controller
        
         }
         if($obj->save()){
-            $sample = User::find($obj->id);       
-            return view('frontend.userprofile',['data'=>$sample]);
+             Session::put('uname',$obj->name);
+             Session::put('fname',$obj->filename);
+           return redirect()->back();
         }
 
     }
