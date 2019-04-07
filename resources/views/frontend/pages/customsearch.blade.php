@@ -1,6 +1,6 @@
-@extends('frontend.layouts.layout')
-@section('post1234')
+@extends('frontend.pages.dashboard')
 
+@section('search1234')
 
 <div class="list-group">
 

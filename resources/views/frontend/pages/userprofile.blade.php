@@ -36,8 +36,9 @@
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                         <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
                             <ul id="myTabedu1" class="tab-review-design">
-                               
+                               @if(Session::get('userrole')==1 && Session::get('userid')==$data->id )
                                 <li><a href="#INFORMATION">Update Details</a></li>
+                                @endif
                             </ul>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
@@ -55,7 +56,7 @@
                                     </div>
                                 </div>
 
-
+                                         @if(Session::get('userrole')==1 && Session::get('userid')==$data->id )
 
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -121,6 +122,7 @@
 
                                         </div>
                                     </div>
+                                    @endif
 
 
 

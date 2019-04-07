@@ -3,6 +3,23 @@
 @section('post1234')
 
 
+
+ <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    <h3 style="position: relative;left: 5px">{{ $data->name }}</h3>
+                                    <p style="position: relative;left: 15px">{{ $data->category }}</br> <i class="fas fa-map-marker-alt"></i> {{ $data->address }} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="profile-info-inner">
@@ -20,6 +37,8 @@
                    
 
 <hr style="border:3px solid #f1f1f1">
+<h3>About</h3>
+<hr class="sidebar-divider">
                                         <div class="abc" style="text-align: center;">
                                              @if($data->rating==5)
                                             <span class="fa fa-star checked"></span>
@@ -75,8 +94,8 @@
                                              @else
                                             @endif
 
-                                            <p>4.1 average based on 254 reviews.</p>
-                                            <hr style="border:3px solid #f1f1f1">
+                                            <p>{{$data->rating}} average based on {{$data2->abc}} reviews.</p>
+                                            <hr class="sidebar-divider">
 
                                             
                                             </div>
@@ -95,56 +114,24 @@
 
 
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                    <div class="col-lg-12">
                                         <div class="address-hr">
-                                            <p><b>Name</b><br />{{ $data->name }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Category</b><br />{{ $data->category }}</p>
+                                            <p>{{ $data->description }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Email ID</b><br />{{ $data->email }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b></b><br /> </p>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="address-hr">
-                                            <p><b>Address</b><br />{{ $data->address }}</p>
+                                            <p><b>Email</b><br />{{ $data->email }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <h3>500</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <h3>900</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <h3>600</h3>
-                                        </div>
-                                    </div>
-                                </div>
+
+                               
+                              
+
                             </div>
                         </div>
                     </div> 
@@ -152,12 +139,15 @@
                         <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
                             <ul id="myTabedu1" class="tab-review-design">
                                 <li class="active"><a href="#description">Reviews</a></li>
+
+                                @if(Session::get('userrole')==2)
                                <li><a href="#INFORMATION">Update Details</a></li>
+                                @endif
                             </ul>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
 
-
+                                     @if(Session::get('userrole')==1)
                                     <div class="row">
                                         <div class="card-body">
 
@@ -170,7 +160,7 @@
                         <span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"  style="font-size:30px;cursor:pointer;" class="fa fa-star"></span>
                         <span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"  style="font-size:30px;cursor:pointer;" class="fa fa-star"></span>
                         <br/>
-                        <form id="str" method="post" action="">
+                        <form id="str" method="post" action="{{ route('storereview',['oid'=>$data->id]) }}">
                         {{csrf_field()}}
                         <input type="hidden" name="hdstar" id="hdstar" />
                         <textarea  style="margin-top:5px;" class="form-control" rows="3" id="comment" name="comment" placeholder="Enter your review"></textarea>
@@ -217,6 +207,7 @@
 
 
                                      <hr style="border:3px solid #f1f1f1">
+                                     @endif
 
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -229,18 +220,82 @@
                                                    
                                                     <div style="height: 500px;overflow: scroll;background-color: white">
 
-                                                        <div class="chat-message">
-                                                        <div class="profile-hdtc">
-                                                             <img class="message-avatar" src="img/contact/3.jpg" alt="">
-                                                        </div>
-                                                        <div class="message">
-                                                            <a class="message-author" href="#"> Michael Smith </a>
-                                                            <span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
-                                                            <span class="message-content">
-                                                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
-                                                                    </span>
-                                                        </div>
-                                                    </div>
+                                                         @if(count($data2)>0)
+                                                            @foreach($data2 as $d)
+
+                                                                <div class="chat-message">
+                                                                <div class="profile-hdtc">
+
+
+                                                                     <img class="message-avatar" src="/thumbnail/{{ $d->ufilename }}" alt="">
+                                                                </div>
+                                                                <div class="message">
+                                                                    <a class="message-author" href="{{ route('userprofile',['id'=>$d->uid]) }}"> {{ $d->uname}} </a>
+                                                                    @if($d->star==5)
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                             <span class="fa fa-star checked"></span>
+                                             @else
+                                            @endif
+
+                                             @if($d->star<5 && $d->star>=4)
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                             <span class="fa fa-star "></span>
+                                             @else
+                                            @endif
+
+                                             @if($d->star<4 && $d->star>=3)
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star "></span>
+                                             <span class="fa fa-star "></span>
+                                             @else
+                                            @endif
+
+                                            @if($d->star<3 && $d->star>=2)
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                             <span class="fa fa-star "></span>
+                                             @else
+                                            @endif
+
+                                             @if($d->star<2 && $d->star>=1)
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                             <span class="fa fa-star "></span>
+                                             @else
+                                            @endif
+
+                                            @if($d->star<1 && $d->star>=0)
+                                             <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                            <span class="fa fa-star "></span>
+                                             <span class="fa fa-star "></span>
+                                             @else
+                                            @endif
+                                                                    <span class="message-date">  {{ $d->updated_at }} </span>
+                                                                    <span class="message-content">
+                                                                            {{$d->review}}
+                                                                            </span>
+                                                                </div>
+                                                                </div>
+                                                            @endforeach
+                                                             <div style="margin: 0 auto;text-align: left;width: 500px;">
+                          {!! $data2->links()!!}
+                        </div>
+        @else
+        @endif
                       
                                                     </div>
 
@@ -385,10 +440,7 @@
                                                             <label>Organization Name</label>
                                                             <input type="text" value="{{$data->name}}"class="form-control" name="name" id="name">
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Email</label>
-                                                            <input type="text" value="{{$data->email}}"class="form-control" name="email" id="email">
-                                                        </div>
+                                                        
                                                         <div class="form-group">
                                                             <label>Address</label>
                                                             <input type="text" value="{{$data->address}}"class="form-control" name="address" id="address">

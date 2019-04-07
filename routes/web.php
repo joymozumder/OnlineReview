@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('frontend.userprofile');
+    return view('frontend.pages.index');
 });
 Route::get('test','HomeController@test');
 
@@ -22,10 +22,12 @@ Route::get('test','HomeController@test');
 
 //user
 Route::get('dashboard','HomeController@dashboard');
+Route::get('index','HomeController@index');
 Route::get('userregister','UserController@UserRegister');
 Route::post('userstore','UserController@UserStore');
 Route::get('userprofile/{id}','UserController@userprofile')->name('userprofile');
 Route::post('userupdate/{id}','UserController@userupdate');
+
 
 
 
@@ -47,6 +49,8 @@ Route::get('welcome','HomeController@welcome');
 Route::get('organizationregister','OrganizationController@OrganizationRegister');
 Route::post('organizationstore','OrganizationController@OrganizationStore');
 Route::get('organizationprofile/{id}','OrganizationController@organizationprofile')->name('organizationprofile');
+Route::post('storereview/{id}','OrganizationController@storereview')->name('storereview');
+
 
 
 
@@ -54,6 +58,8 @@ Route::get('organizationprofile/{id}','OrganizationController@organizationprofil
 Route::get('login','HomeController@login');
 Route::post('postlogin','HomeController@postlogin');
 Route::get('list/{category}', 'HomeController@list')->name('list');
+Route::post('customsearch','HomeController@customsearch');
+
 
 
 
