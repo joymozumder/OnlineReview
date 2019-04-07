@@ -103,7 +103,7 @@
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-success loginbtn">Login</button>
-                                <button href="{{URL::to('welcome')}}"class="btn btn-default">Join us</button>
+                                <button type="button" onclick="location.href='{{URL::to('/')}}'" class="btn btn-default">Join us</button>
                                 
                                     
                             </div>
