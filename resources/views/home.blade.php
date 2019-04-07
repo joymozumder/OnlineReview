@@ -17,7 +17,7 @@
    	   </div>
 
    	    <div class="hero">
-   	    	<h1>Welcome to Review System</h1>
+   	    	<h1>Welcome to Online Review</h1>
             <p></p>
    	   	    <div class="button">
    	   	    	<a href="{{URL::to('login')}}" class="btn btn1">Log in</a>
