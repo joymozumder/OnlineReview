@@ -14,6 +14,11 @@ use App\User;
 class HomeController extends Controller
 {
 
+    public function home(){
+        return view('home');
+    }
+
+
 
 
 
@@ -66,6 +71,7 @@ class HomeController extends Controller
 
 
 
+
     public function test(){
         return view('frontend.userprofile');
     }
@@ -77,6 +83,7 @@ class HomeController extends Controller
     }
     
     public function postlogin(Request $req){
+        //'required|exists:users,email|min:6'
         $validatedData = $req->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -123,7 +130,8 @@ class HomeController extends Controller
         }
         
         else {
-        	return redirect()->to('login');
+        	return redirect('login')->with('msg','Invalid Email or Password');
+
         }
     }
 

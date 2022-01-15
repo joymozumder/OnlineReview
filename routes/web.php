@@ -11,10 +11,16 @@
 |
 */
 
+
+
+Route::get('/','HomeController@home');
+
+
 Route::get('/', function () {
     return view('frontend.pages.index');
 });
 Route::get('test','HomeController@test');
+
 
 
 
