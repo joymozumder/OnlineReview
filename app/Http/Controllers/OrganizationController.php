@@ -8,11 +8,13 @@ use App\Organization;
 use File;
 use Image;
 use App\Approval;
+use App\Review;
+use App\db;
 
 class OrganizationController extends Controller
 {
     public function OrganizationRegister(){
-    	return view('backend.organizationregister');
+    	return view('frontend.organizationregister');
     }
     public function OrganizationStore(Request $req){
     	$validatedData = $req->validate([
@@ -54,7 +56,6 @@ class OrganizationController extends Controller
     public function organizationupdate(Request $req,$id){
         $obj = Organization::find($id);       
         $obj->name=$req->name;
-        $obj->email=$req->email;
         $obj->address=$req->address;
         $obj->description=$req->description;
 
@@ -72,8 +73,83 @@ class OrganizationController extends Controller
        
         }
         if($obj->save()){
-            $sample = Organization::find($obj->id);       
-            return view('frontend.organizationprofile',['data'=>$sample]);
+            return redirect()->back();
         }
     }
+
+   /* public function organizationprofile($id)
+    {
+
+        $obj = Organization::find($id);
+        return view('frontend.pages.organizationprofile',['data'=>$obj]);
+    }*/
+
+
+     public function organizationprofile($id)
+    {
+
+        $obj = Organization::find($id);
+        $obj2= Review::join('users', 'reviews.uid', '=', 'users.id')
+            ->select('reviews.*', 'users.name as uname','users.filename as ufilename','users.id as uid')
+            ->where('reviews.oid','=',$id)
+            ->orderBy('reviews.updated_at','DESC')
+            ->paginate(10);
+
+        //$platinum=User::where('stripe_plan','platinum_monthly')->count();
+        $obj3= Review::where('oid','=',$id)->count();
+        $obj2->abc=$obj3;
+        //dd($obj2);
+
+        //dd($obj3);
+        return view('frontend.pages.organizationprofile',['data'=>$obj,'data2'=>$obj2]) ;
+    }
+
+
+
+
+    public function storereview(Request $req,$id)
+    {
+
+       // $uid=Session::get('uname');
+        if($req->hdstar=="" or $req->comment=="")
+        {
+            return redirect()->back();
+        }
+        $obj=new Review();
+        $obj->star=$req->hdstar;
+        $obj->review=$req->comment;
+        $obj->uid=Session::get('userid');
+        $obj->oid=$req->id;
+        $temp=$req->id;
+        if($obj->save())
+        {
+            
+           
+            $price = Review::where('oid','=', $temp)
+                ->avg('star');
+  
+
+
+
+
+        $obj = Organization::find($temp);       
+        $obj->rating=$price;
+        
+        
+        if($obj->save()){
+            return redirect()->back();
+        }
+
+
+
+
+
+
+           
+        }
+        
+    }
+
+
+
 }
